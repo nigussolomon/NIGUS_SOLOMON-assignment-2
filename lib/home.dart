@@ -6,13 +6,19 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
             Container(
                 decoration: const BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(3))),
+                    borderRadius: BorderRadius.all(Radius.circular(3)),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color.fromARGB(19, 150, 150, 150),
+                          spreadRadius: 1)
+                    ]),
                 margin: const EdgeInsets.all(10),
                 child: Padding(
                   padding: const EdgeInsets.all(10),
