@@ -90,11 +90,12 @@ class Home extends StatelessWidget {
               ),
             ),
             SingleChildScrollView(
-              child: SizedBox(
-                height: 180,
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                height: 185,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.only(top: 10, bottom: 10),
                     itemCount: 3,
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
@@ -117,41 +118,54 @@ class Home extends StatelessWidget {
                                   blurRadius: 5)
                             ]),
                         padding: const EdgeInsets.all(10),
-                        margin: const EdgeInsets.only(bottom: 10, right: 40),
-                        width: 190,
-                        child: Text('Hot Muffins',
-                            style: GoogleFonts.oswald(
-                              textStyle: const TextStyle(
-                                  color: Color.fromARGB(255, 255, 255, 255),
-                                  fontWeight: FontWeight.w900,
-                                  fontSize: 38),
-                            )),
+                        margin: const EdgeInsets.only(bottom: 10, right: 10),
+                        width: 220,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Muffins',
+                                style: GoogleFonts.oswald(
+                                  textStyle: const TextStyle(
+                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 30),
+                                )),
+                            Text(
+                                'Lorem Ipsum is simply dummy text of the printing and typesetting industry lorem Ipsum has been the',
+                                style: GoogleFonts.oswald(
+                                  textStyle: const TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                  ),
+                                ))
+                          ],
+                        ),
                       );
                     }),
               ),
             ),
             SingleChildScrollView(
-              child: SizedBox(
-                height: 120,
+              child: Container(
+                margin: const EdgeInsets.only(right: 10),
+                height: 100,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 5,
+                    itemCount: 6,
                     // shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
                       return Column(
                         children: [
                           Container(
                               width: 70,
-                              height: 50,
+                              height: 65,
                               margin:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               decoration: const BoxDecoration(
                                   image: DecorationImage(
                                       image: NetworkImage(
-                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU'),
+                                          'https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900'),
                                       fit: BoxFit.cover),
                                   borderRadius:
-                                      BorderRadius.all(Radius.circular(3))),
+                                      BorderRadius.all(Radius.circular(5))),
                               child: const Text('')),
                           Text(
                             "Category",
@@ -162,6 +176,79 @@ class Home extends StatelessWidget {
                     }),
               ),
             ),
+            SingleChildScrollView(
+              child: Container(
+                margin: const EdgeInsets.only(right: 15),
+                height: 230,
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    itemCount: 6,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                              width: 70,
+                              height: 65,
+                              margin: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          'https://www.fanabc.com/english/wp-content/uploads/2022/08/ethiopia-coffee.jpg'),
+                                      fit: BoxFit.cover),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(3))),
+                              child: const Text('')),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 8,
+                            ),
+                            child: SizedBox(
+                              width: 250,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Food Title",
+                                    style: GoogleFonts.oswald(
+                                        textStyle: const TextStyle(
+                                            fontWeight: FontWeight.w700)),
+                                  ),
+                                  Text(
+                                      'Lorem Ipsum is simply dummy text of the printing and typesetting industry ',
+                                      style: GoogleFonts.oswald())
+                                ],
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.add_shopping_cart_sharp,
+                                color: Color.fromARGB(255, 145, 245, 173),
+                              ))
+                        ],
+                      );
+                    }),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 145, 245, 173),
+                  minimumSize: const Size.fromHeight(50), // NEW
+                ),
+                onPressed: () {},
+                child: Text(
+                  'GET MORE GOODIES!',
+                  style: GoogleFonts.oswald(
+                      textStyle: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w600)),
+                ),
+              ),
+            )
           ],
         ),
       ),
