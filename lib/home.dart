@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -28,18 +29,22 @@ class Home extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Row(
-                        children: const [
-                          Text(
-                            "BLU ",
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 145, 245, 173),
-                                fontWeight: FontWeight.w900,
-                                fontSize: 20),
-                          ),
+                        children: [
+                          Text("BLU ",
+                              style: GoogleFonts.oswald(
+                                textStyle: const TextStyle(
+                                    color: Color.fromARGB(255, 145, 245, 173),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 20),
+                              )),
                           Text(
                             "BAKERY",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w300),
+                            style: GoogleFonts.oswald(
+                              textStyle: const TextStyle(
+                                  color: Colors.black87,
+                                  fontWeight: FontWeight.w300,
+                                  fontSize: 18),
+                            ),
                           )
                         ],
                       ),
@@ -51,30 +56,38 @@ class Home extends StatelessWidget {
                 )),
             Container(
               margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-              child: const TextField(
+              child: TextField(
                 decoration: InputDecoration(
                   hintText: 'Search',
-                  hintStyle: TextStyle(color: Color.fromARGB(50, 0, 0, 0)),
-                  suffixIcon: Icon(Icons.search),
-                  suffixIconColor: Color.fromARGB(40, 0, 0, 0),
-                  enabledBorder: OutlineInputBorder(
+                  hintStyle: GoogleFonts.oswald(
+                    textStyle: const TextStyle(
+                      color: Color.fromARGB(64, 0, 0, 0),
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  suffixIcon: const Icon(Icons.search),
+                  suffixIconColor: const Color.fromARGB(40, 0, 0, 0),
+                  enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
                           color: Color.fromARGB(255, 145, 245, 173), width: 1),
                       borderRadius: BorderRadius.all(Radius.circular(3))),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
                           color: Color.fromARGB(255, 145, 245, 173), width: 1),
                       borderRadius: BorderRadius.all(Radius.circular(5))),
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 10),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
               child: Text(
                 "OUR TOP PICKS",
-                style: TextStyle(
+                style: GoogleFonts.oswald(
+                  textStyle: const TextStyle(
                     color: Color.fromARGB(255, 145, 245, 173),
-                    fontWeight: FontWeight.w900),
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
               ),
             ),
             SingleChildScrollView(
@@ -93,7 +106,7 @@ class Home extends StatelessWidget {
                                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU'),
                                 fit: BoxFit.cover,
                                 colorFilter: ColorFilter.srgbToLinearGamma()),
-                            borderRadius: BorderRadius.all(Radius.circular(5)),
+                            borderRadius: BorderRadius.all(Radius.circular(3)),
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
@@ -104,13 +117,13 @@ class Home extends StatelessWidget {
                         padding: const EdgeInsets.all(10),
                         margin: const EdgeInsets.only(bottom: 10, right: 25),
                         width: 180,
-                        child: const Text(
-                          'Hot Muffins',
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 145, 245, 173),
-                              fontWeight: FontWeight.w900,
-                              fontSize: 30),
-                        ),
+                        child: Text('Hot Muffins',
+                            style: GoogleFonts.oswald(
+                              textStyle: const TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontWeight: FontWeight.w900,
+                                  fontSize: 35),
+                            )),
                       );
                     }),
               ),
