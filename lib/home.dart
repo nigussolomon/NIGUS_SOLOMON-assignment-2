@@ -7,6 +7,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
@@ -137,25 +138,27 @@ class Home extends StatelessWidget {
                     itemCount: 5,
                     // shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                          margin: const EdgeInsets.only(
-                              bottom: 5, left: 10, right: 10),
-                          width: 100,
-                          child: Column(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Image(
-                                  width: 100,
-                                  height: 80,
-                                  image: NetworkImage(
-                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU'),
-                                  fit: BoxFit.cover),
-                              Text(
-                                "Category",
-                                style: GoogleFonts.oswald(),
-                              )
-                            ],
-                          ));
+                      return Column(
+                        children: [
+                          Container(
+                              width: 70,
+                              height: 50,
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU'),
+                                      fit: BoxFit.cover),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(3))),
+                              child: const Text('')),
+                          Text(
+                            "Category",
+                            style: GoogleFonts.oswald(),
+                          )
+                        ],
+                      );
                     }),
               ),
             ),
