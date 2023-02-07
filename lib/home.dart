@@ -60,10 +60,8 @@ class Home extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'Search',
                   hintStyle: GoogleFonts.oswald(
-                    textStyle: const TextStyle(
-                      color: Color.fromARGB(64, 0, 0, 0),
-                      fontWeight: FontWeight.w300,
-                    ),
+                    textStyle:
+                        const TextStyle(color: Color.fromARGB(64, 0, 0, 0)),
                   ),
                   suffixIcon: const Icon(Icons.search),
                   suffixIconColor: const Color.fromARGB(40, 0, 0, 0),
@@ -102,10 +100,13 @@ class Home extends StatelessWidget {
                       return Container(
                         decoration: const BoxDecoration(
                             image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU'),
-                                fit: BoxFit.cover,
-                                colorFilter: ColorFilter.srgbToLinearGamma()),
+                              image: NetworkImage(
+                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU'),
+                              fit: BoxFit.cover,
+                              colorFilter: ColorFilter.mode(
+                                  Color.fromARGB(139, 0, 0, 0),
+                                  BlendMode.darken),
+                            ),
                             borderRadius: BorderRadius.all(Radius.circular(3)),
                             color: Colors.white,
                             boxShadow: [
@@ -115,19 +116,49 @@ class Home extends StatelessWidget {
                                   blurRadius: 5)
                             ]),
                         padding: const EdgeInsets.all(10),
-                        margin: const EdgeInsets.only(bottom: 10, right: 25),
-                        width: 180,
+                        margin: const EdgeInsets.only(bottom: 10, right: 40),
+                        width: 190,
                         child: Text('Hot Muffins',
                             style: GoogleFonts.oswald(
                               textStyle: const TextStyle(
                                   color: Color.fromARGB(255, 255, 255, 255),
                                   fontWeight: FontWeight.w900,
-                                  fontSize: 35),
+                                  fontSize: 38),
                             )),
                       );
                     }),
               ),
-            )
+            ),
+            SingleChildScrollView(
+              child: SizedBox(
+                height: 120,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 5,
+                    // shrinkWrap: true,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                          margin: const EdgeInsets.only(
+                              bottom: 5, left: 10, right: 10),
+                          width: 100,
+                          child: Column(
+                            // crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Image(
+                                  width: 100,
+                                  height: 80,
+                                  image: NetworkImage(
+                                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU'),
+                                  fit: BoxFit.cover),
+                              Text(
+                                "Category",
+                                style: GoogleFonts.oswald(),
+                              )
+                            ],
+                          ));
+                    }),
+              ),
+            ),
           ],
         ),
       ),
