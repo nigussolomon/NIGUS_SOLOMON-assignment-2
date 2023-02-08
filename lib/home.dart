@@ -107,7 +107,7 @@ class Home extends StatelessWidget {
                           Text("BLU ",
                               style: GoogleFonts.oswald(
                                 textStyle: const TextStyle(
-                                    color: Color.fromARGB(255, 145, 245, 173),
+                                    color: Color.fromARGB(255, 15, 118, 252),
                                     fontWeight: FontWeight.w700,
                                     fontSize: 20),
                               )),
@@ -141,11 +141,11 @@ class Home extends StatelessWidget {
                   suffixIconColor: const Color.fromARGB(40, 0, 0, 0),
                   enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Color.fromARGB(255, 145, 245, 173), width: 1),
+                          color: Color.fromARGB(255, 15, 118, 252), width: 1),
                       borderRadius: BorderRadius.all(Radius.circular(3))),
                   focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
-                          color: Color.fromARGB(255, 145, 245, 173), width: 1),
+                          color: Color.fromARGB(255, 15, 118, 252), width: 1),
                       borderRadius: BorderRadius.all(Radius.circular(5))),
                 ),
               ),
@@ -156,7 +156,7 @@ class Home extends StatelessWidget {
                 "OUR TOP PICKS",
                 style: GoogleFonts.oswald(
                   textStyle: const TextStyle(
-                    color: Color.fromARGB(255, 145, 245, 173),
+                    color: Color.fromARGB(255, 15, 118, 252),
                     fontWeight: FontWeight.w400,
                   ),
                 ),
@@ -295,7 +295,9 @@ class Home extends StatelessWidget {
                                   ),
                                   Text(
                                       'Lorem Ipsum is simply dummy text of the printing and typesetting industry ',
-                                      style: GoogleFonts.oswald())
+                                      style: GoogleFonts.oswald(
+                                          textStyle: const TextStyle(
+                                              fontWeight: FontWeight.w300)))
                                 ],
                               ),
                             ),
@@ -303,11 +305,11 @@ class Home extends StatelessWidget {
                           IconButton(
                               onPressed: () {},
                               splashColor:
-                                  const Color.fromARGB(255, 145, 245, 173),
+                                  const Color.fromARGB(255, 15, 118, 252),
                               splashRadius: 20,
                               icon: const Icon(
-                                Icons.add_shopping_cart_sharp,
-                                color: Color.fromARGB(255, 145, 245, 173),
+                                Icons.shopping_cart_sharp,
+                                color: Color.fromARGB(255, 15, 118, 252),
                               ))
                         ],
                       );
@@ -318,7 +320,7 @@ class Home extends StatelessWidget {
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 145, 245, 173),
+                  backgroundColor: const Color.fromARGB(255, 15, 118, 252),
                   minimumSize: const Size.fromHeight(50), // NEW
                 ),
                 onPressed: () {},
@@ -329,7 +331,7 @@ class Home extends StatelessWidget {
                           fontSize: 20, fontWeight: FontWeight.w600)),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
