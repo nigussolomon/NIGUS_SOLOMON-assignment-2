@@ -2,7 +2,80 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+  final List topPicks = [
+    {
+      "header": "Muffins",
+      "image":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU"
+    },
+    {
+      "header": "Hot Cake",
+      "image":
+          "https://www.keyingredient.com/media/09/82/b08496cd78ddbd4bdda4f441160ddc6d4b15.jpg/rh/japanese-hot-cake.jpg"
+    },
+    {
+      "header": "Pizza",
+      "image":
+          "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
+    }
+  ];
+
+  final List categories = [
+    {
+      "header": "Bread",
+      "image":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0pR9lYrLL6foi2hJVTthl0imMjSe06TGHCw&usqp=CAU"
+    },
+    {
+      "header": "Cakes",
+      "image":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQazwyM6YL2At8LkesN3cHfo_yTZAvhBkNWag&usqp=CAU"
+    },
+    {
+      "header": "Snacks",
+      "image":
+          "https://www.tasteofhome.com/wp-content/uploads/2019/05/shutterstock_273975992.jpg?fit=700,700"
+    },
+    {
+      "header": "Pizza",
+      "image":
+          "https://www.simplyrecipes.com/thmb/KRw_r32s4gQeOX-d07NWY1OlOFk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Homemade-Pizza-Dough-Lead-Shot-1c-c2b1885d27d4481c9cfe6f6286a64342.jpg"
+    },
+    {
+      "header": "Sweets",
+      "image":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbtemmsGoD-X-jj6lvU-RZNYDUMoof_WJkDQ&usqp=CAU"
+    },
+    {
+      "header": "Coffee",
+      "image":
+          "https://www.fanabc.com/english/wp-content/uploads/2022/08/ethiopia-coffee.jpg"
+    }
+  ];
+
+  final List food = [
+    {
+      "header": "Black Forest",
+      "image":
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnUDHRtg_GfjnrXHpWpwzFYB-WtKsmLeKcsw&usqp=CAU"
+    },
+    {
+      "header": "Super Meat Pizza",
+      "image":
+          "https://www.queensleeappetit.com/wp-content/uploads/2019/02/Meat-Lovers-Pizza-7.jpg"
+    },
+    {
+      "header": "Pancakes",
+      "image":
+          "https://static.onecms.io/wp-content/uploads/sites/43/2022/03/20/20334-Banana-Pancakes-mfs__2x3.jpg"
+    },
+    {
+      "header": "Chocolate",
+      "image":
+          "https://upload.wikimedia.org/wikipedia/commons/7/70/Chocolate_%28blue_background%29.jpg"
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -96,22 +169,23 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.only(top: 10, bottom: 10),
-                    itemCount: 3,
+                    itemCount: topPicks.length,
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
+                      final pick = topPicks[index];
                       return Container(
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                             image: DecorationImage(
-                              image: NetworkImage(
-                                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU'),
+                              image: NetworkImage(pick["image"]),
                               fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
+                              colorFilter: const ColorFilter.mode(
                                   Color.fromARGB(139, 0, 0, 0),
                                   BlendMode.darken),
                             ),
-                            borderRadius: BorderRadius.all(Radius.circular(3)),
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(3)),
                             color: Colors.white,
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                   color: Color.fromARGB(20, 168, 168, 168),
                                   spreadRadius: 1,
@@ -123,7 +197,7 @@ class Home extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Muffins',
+                            Text(pick["header"],
                                 style: GoogleFonts.oswald(
                                   textStyle: const TextStyle(
                                       color: Color.fromARGB(255, 255, 255, 255),
@@ -145,31 +219,35 @@ class Home extends StatelessWidget {
             ),
             SingleChildScrollView(
               child: Container(
-                margin: const EdgeInsets.only(right: 10),
+                margin: const EdgeInsets.symmetric(horizontal: 10),
                 height: 100,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: 6,
+                    itemCount: categories.length,
                     // shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
+                      final category = categories[index];
                       return Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
                               width: 70,
                               height: 65,
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              decoration: const BoxDecoration(
+                              margin: const EdgeInsets.only(right: 15),
+                              decoration: BoxDecoration(
                                   image: DecorationImage(
-                                      image: NetworkImage(
-                                          'https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900'),
+                                      image: NetworkImage(category["image"]),
                                       fit: BoxFit.cover),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5))),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(5))),
                               child: const Text('')),
-                          Text(
-                            "Category",
-                            style: GoogleFonts.oswald(),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 15),
+                            child: Text(
+                              category["header"],
+                              style: GoogleFonts.oswald(),
+                            ),
                           )
                         ],
                       );
@@ -182,8 +260,9 @@ class Home extends StatelessWidget {
                 height: 230,
                 child: ListView.builder(
                     scrollDirection: Axis.vertical,
-                    itemCount: 6,
+                    itemCount: food.length,
                     itemBuilder: (BuildContext context, int index) {
+                      final foodItem = food[index];
                       return Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -192,13 +271,12 @@ class Home extends StatelessWidget {
                               width: 70,
                               height: 65,
                               margin: const EdgeInsets.all(10),
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                   image: DecorationImage(
-                                      image: NetworkImage(
-                                          'https://www.fanabc.com/english/wp-content/uploads/2022/08/ethiopia-coffee.jpg'),
+                                      image: NetworkImage(foodItem["image"]),
                                       fit: BoxFit.cover),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(3))),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(3))),
                               child: const Text('')),
                           Padding(
                             padding: const EdgeInsets.symmetric(
@@ -210,7 +288,7 @@ class Home extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    "Food Title",
+                                    foodItem["header"],
                                     style: GoogleFonts.oswald(
                                         textStyle: const TextStyle(
                                             fontWeight: FontWeight.w700)),
@@ -224,6 +302,9 @@ class Home extends StatelessWidget {
                           ),
                           IconButton(
                               onPressed: () {},
+                              splashColor:
+                                  const Color.fromARGB(255, 145, 245, 173),
+                              splashRadius: 20,
                               icon: const Icon(
                                 Icons.add_shopping_cart_sharp,
                                 color: Color.fromARGB(255, 145, 245, 173),
