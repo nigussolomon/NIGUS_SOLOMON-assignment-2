@@ -1,81 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/data.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Home extends StatelessWidget {
-  Home({super.key});
-  final List topPicks = [
-    {
-      "header": "Muffins",
-      "image":
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKWBHLmyeZIjrRTO6NB-w1IVlbwz16E7xraA&usqp=CAU"
-    },
-    {
-      "header": "Hot Cake",
-      "image":
-          "https://www.keyingredient.com/media/09/82/b08496cd78ddbd4bdda4f441160ddc6d4b15.jpg/rh/japanese-hot-cake.jpg"
-    },
-    {
-      "header": "Pizza",
-      "image":
-          "https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900"
-    }
-  ];
-
-  final List categories = [
-    {
-      "header": "Bread",
-      "image":
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0pR9lYrLL6foi2hJVTthl0imMjSe06TGHCw&usqp=CAU"
-    },
-    {
-      "header": "Cakes",
-      "image":
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQazwyM6YL2At8LkesN3cHfo_yTZAvhBkNWag&usqp=CAU"
-    },
-    {
-      "header": "Snacks",
-      "image":
-          "https://www.tasteofhome.com/wp-content/uploads/2019/05/shutterstock_273975992.jpg?fit=700,700"
-    },
-    {
-      "header": "Pizza",
-      "image":
-          "https://www.simplyrecipes.com/thmb/KRw_r32s4gQeOX-d07NWY1OlOFk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Homemade-Pizza-Dough-Lead-Shot-1c-c2b1885d27d4481c9cfe6f6286a64342.jpg"
-    },
-    {
-      "header": "Sweets",
-      "image":
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbtemmsGoD-X-jj6lvU-RZNYDUMoof_WJkDQ&usqp=CAU"
-    },
-    {
-      "header": "Coffee",
-      "image":
-          "https://www.fanabc.com/english/wp-content/uploads/2022/08/ethiopia-coffee.jpg"
-    }
-  ];
-
-  final List food = [
-    {
-      "header": "Black Forest",
-      "image":
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnUDHRtg_GfjnrXHpWpwzFYB-WtKsmLeKcsw&usqp=CAU"
-    },
-    {
-      "header": "Super Meat Pizza",
-      "image":
-          "https://www.queensleeappetit.com/wp-content/uploads/2019/02/Meat-Lovers-Pizza-7.jpg"
-    },
-    {
-      "header": "Pancakes",
-      "image":
-          "https://static.onecms.io/wp-content/uploads/sites/43/2022/03/20/20334-Banana-Pancakes-mfs__2x3.jpg"
-    },
-    {
-      "header": "Chocolate",
-      "image":
-          "https://upload.wikimedia.org/wikipedia/commons/7/70/Chocolate_%28blue_background%29.jpg"
-    },
-  ];
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -169,10 +97,10 @@ class Home extends StatelessWidget {
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     padding: const EdgeInsets.only(top: 10, bottom: 10),
-                    itemCount: topPicks.length,
+                    itemCount: DataLoader.getPicks().length,
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
-                      final pick = topPicks[index];
+                      final pick = DataLoader.getPicks()[index];
                       return Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
@@ -223,10 +151,10 @@ class Home extends StatelessWidget {
                 height: 100,
                 child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    itemCount: categories.length,
+                    itemCount: DataLoader.getCategories().length,
                     // shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
-                      final category = categories[index];
+                      final category = DataLoader.getCategories()[index];
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -260,9 +188,9 @@ class Home extends StatelessWidget {
                 height: 230,
                 child: ListView.builder(
                     scrollDirection: Axis.vertical,
-                    itemCount: food.length,
+                    itemCount: DataLoader.getFoods().length,
                     itemBuilder: (BuildContext context, int index) {
-                      final foodItem = food[index];
+                      final foodItem = DataLoader.getFoods()[index];
                       return Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
